@@ -43,7 +43,15 @@ module Lit
     end
 
     def translation
-      is_changed? && !translated_value.nil? ? translated_value : default_value
+      if is_changed?
+        if translated_value.nil?
+          ""
+        else
+          translated_value
+        end
+      else
+        default_value
+      end
     end
 
     def value
