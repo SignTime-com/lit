@@ -44,7 +44,7 @@ module Lit
 
     def translation
       if is_changed?
-        if translated_value.nil?
+        if translated_value.blank?
           ""
         else
           translated_value
