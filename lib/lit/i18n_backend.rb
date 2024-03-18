@@ -24,6 +24,7 @@ module Lit
     def translate(locale, key, options = {})
       options[:lit_default_copy] = options[:default].dup if can_dup_default(options)
       content = super(locale, key, options)
+      content = "" if content.is_a?(Integer)
 
       if on_rails_6_1_or_higher?
         @untranslated_key = key if key.present? && options[:default].instance_of?(Object)
